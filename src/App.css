@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.wrapper {
+  display: grid;
+  grid-template-columns: 2fr 4fr;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+  height: 100vh;
+}
+
+.leftSide {
+  width: 100%;
+  height: 100vh;
+  background-image: url(./img/bg-main-desktop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.rightSide {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rightSide__boxContent {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.rightSide__boxContent_nameFiled, .rightSide__boxContent_cardNumberFiled, .rightSide__boxContent_expCVCFiled {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.rightSide__boxContent_nameFiled_title, .rightSide__boxContent_cardNumberFiled_title, .rightSide__boxContent_expCVCFiled_title {
+  color: #220930;
+  letter-spacing: 2px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.rightSide__boxContent_nameFiled_inputDefault, .rightSide__boxContent_nameFiled_inputError, .rightSide__boxContent_cardNumberFiled_inputDefault, .rightSide__boxContent_cardNumberFiled_inputError, .rightSide__boxContent_expCVCFiled_inputDefault, .rightSide__boxContent_expCVCFiled_inputError {
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+  padding: 5px 10px;
+  outline: none;
+  color: #220930;
+  border: 1px solid rgba(192, 192, 192, 0.733);
+  border-radius: 7px;
+}
+.rightSide__boxContent_nameFiled_inputDefault::-moz-placeholder, .rightSide__boxContent_nameFiled_inputError::-moz-placeholder, .rightSide__boxContent_cardNumberFiled_inputDefault::-moz-placeholder, .rightSide__boxContent_cardNumberFiled_inputError::-moz-placeholder, .rightSide__boxContent_expCVCFiled_inputDefault::-moz-placeholder, .rightSide__boxContent_expCVCFiled_inputError::-moz-placeholder {
+  color: rgba(192, 192, 192, 0.781);
+}
+.rightSide__boxContent_nameFiled_inputDefault::placeholder, .rightSide__boxContent_nameFiled_inputError::placeholder, .rightSide__boxContent_cardNumberFiled_inputDefault::placeholder, .rightSide__boxContent_cardNumberFiled_inputError::placeholder, .rightSide__boxContent_expCVCFiled_inputDefault::placeholder, .rightSide__boxContent_expCVCFiled_inputError::placeholder {
+  color: rgba(192, 192, 192, 0.781);
+}
+.rightSide__boxContent_nameFiled_inputDefault:focus, .rightSide__boxContent_nameFiled_inputError:focus, .rightSide__boxContent_cardNumberFiled_inputDefault:focus, .rightSide__boxContent_cardNumberFiled_inputError:focus, .rightSide__boxContent_expCVCFiled_inputDefault:focus, .rightSide__boxContent_expCVCFiled_inputError:focus {
+  border: 1px solid #220930;
+}
+.rightSide__boxContent_nameFiled_inputError, .rightSide__boxContent_cardNumberFiled_inputError, .rightSide__boxContent_expCVCFiled_inputError {
+  border: 1px solid rgba(185, 0, 0, 0.726);
+  background-color: rgba(255, 199, 199, 0.329);
+}
+.rightSide__boxContent_nameFiled_inputError::-moz-placeholder, .rightSide__boxContent_cardNumberFiled_inputError::-moz-placeholder, .rightSide__boxContent_expCVCFiled_inputError::-moz-placeholder {
+  color: rgba(185, 0, 0, 0.726);
+}
+.rightSide__boxContent_nameFiled_inputError::placeholder, .rightSide__boxContent_cardNumberFiled_inputError::placeholder, .rightSide__boxContent_expCVCFiled_inputError::placeholder {
+  color: rgba(185, 0, 0, 0.726);
+}
+.rightSide__boxContent_nameFiled_error, .rightSide__boxContent_cardNumberFiled_error, .rightSide__boxContent_expCVCFiled_error {
+  color: rgba(185, 0, 0, 0.726);
+}
+.rightSide__boxContent button {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.1s;
+  background-color: #220930;
+  border: none;
+  outline: none;
   color: white;
+  font-size: 25px;
 }
-
-.App-link {
-  color: #61dafb;
+.rightSide__boxContent button:hover {
+  transform: scale(1.02);
+  transition: all 0.1s;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.rightSide__boxContent button:active {
+  transform: scale(0.98);
+  transition: all 0.1s;
+}/*# sourceMappingURL=App.css.map */

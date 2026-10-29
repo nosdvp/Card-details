@@ -1,0 +1,104 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.leftSide{
+  width: 100%;
+  height: 100vh;
+  background-image: url(./img/bg-main-desktop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.rightSide{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__boxContent{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    &_nameFiled,
+    &_cardNumberFiled,
+    &_expCVCFiled{
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      &_title{
+        color: #220930;
+        letter-spacing: 2px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &_inputDefault,
+      &_inputError{
+        width: 100%;
+        height: 40px;
+        font-size: 18px;
+        padding: 5px 10px;
+        outline: none;
+        color: #220930;
+        border: 1px solid rgba(192, 192, 192, 0.733);
+        border-radius: 7px;
+        &::placeholder{
+          color: rgba(192, 192, 192, 0.781);
+        }
+        &:focus{
+          border: 1px solid #220930;
+        }
+      }
+      &_inputError{
+        border: 1px solid rgba(185, 0, 0, 0.726);
+        background-color: rgba(255, 199, 199, 0.329);
+        &::placeholder{
+          color: rgba(185, 0, 0, 0.726)
+        }
+      }
+      &_error{
+        color: rgba(185, 0, 0, 0.726)
+      }
+    }
+    button{
+      width: 100%;
+      height: 60px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.1s;
+      background-color: #220930;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 25px;
+      &:hover{
+        transform: scale(1.02);
+        transition: all 0.1s;
+      }
+      &:active{
+        transform: scale(0.98);
+        transition: all 0.1s;
+      }
+    }
+  }
+}
+
+@media(max-width: 700px){
+  
+}
