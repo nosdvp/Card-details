@@ -35,8 +35,7 @@
     justify-content: space-between;
     flex-direction: column;
     &_nameFiled,
-    &_cardNumberFiled,
-    &_expCVCFiled{
+    &_cardNumberFiled{
       width: 100%;
       height: 100px;
       display: flex;
@@ -76,6 +75,80 @@
         color: rgba(185, 0, 0, 0.726)
       }
     }
+    &_expCVCFiled{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100px;
+      gap: 40px;
+      &_expBlock{
+        width: 45%;
+        &_title{
+          color: #220930;
+          font-weight: bold;
+          letter-spacing: 2px;
+        }
+        &_inputBox{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          &_month,
+          &_year{
+            width: 45%;
+            height: 40px;
+            width: 100%;
+            font-size: 18px;
+            padding: 5px 10px;
+            outline: none;
+            color: #220930;
+            border: 1px solid rgba(192, 192, 192, 0.733);
+            border-radius: 7px;
+            &::placeholder{
+              color: rgba(192, 192, 192, 0.781);
+            }
+            &:focus{
+              border: 1px solid #220930;
+            }
+          }
+        }
+      }
+      &_cvcField{
+        width: 45%;
+        &_title{
+          color: #220930;
+          font-weight: bold;
+          letter-spacing: 2px;
+        }
+        &_inputDefault,
+        &_inputError{
+          width: 100%;
+          height: 40px;
+          font-size: 18px;
+          padding: 5px 10px;
+          outline: none;
+          color: #220930;
+          border: 1px solid rgba(192, 192, 192, 0.733);
+          border-radius: 7px;
+          &::placeholder{
+            color: rgba(192, 192, 192, 0.781);
+          }
+          &:focus{
+            border: 1px solid #220930;
+          }
+        }
+        &_error{
+          color: rgba(185, 0, 0, 0.726)
+        }
+        &_inputError{
+          border: 1px solid rgba(185, 0, 0, 0.726);
+          background-color: rgba(255, 199, 199, 0.329);
+          &::placeholder{
+            color: rgba(185, 0, 0, 0.726)
+          }
+        }
+      }
+    }
     button{
       width: 100%;
       height: 60px;
@@ -97,8 +170,46 @@
       }
     }
   }
-}
-
-@media(max-width: 700px){
-  
+  &__boxCompleted{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    img{
+      width: 75px;
+      height: 75px;
+      margin-bottom: 30px;
+    }
+    h1{
+      letter-spacing: 5px;
+      color: #220930;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    p{
+      color: silver;
+      margin-bottom: 30px;
+    }
+    button{
+      width: 100%;
+      height: 60px;
+      border-radius: 7px;
+      cursor: pointer;
+      background-color: #220930;
+      color: white;
+      font-size: 25px;
+      border: none;
+      outline: none;
+      &:hover{
+        transform: scale(1.02);
+        transition: all 0.1s;
+      }
+      &:active{
+        transform: scale(0.98);
+        transition: all 0.1s;
+      }
+    }
+  }
 }
