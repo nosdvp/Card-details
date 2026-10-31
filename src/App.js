@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import completed from './img/icon-complete.svg'
+import cardFront from './img/bg-card-front.png'
+import cardBack from './img/bg-card-back.png'
 
 function App() {
 
@@ -10,24 +12,33 @@ function App() {
   const [nameError, setNameError] = useState('')
   const [styleNameInput, setStyleNameInput] = useState('rightSide__boxContent_nameFiled_inputDefault')
 
-  const [cardNumber, setCardNumber] = useState()
+  const [cardNumber, setCardNumber] = useState('')
   const [cardNumberError, setCardNumberError] = useState('')
   const [styleCardNumberInput, setStyleCardNumberInput] = useState('rightSide__boxContent_cardNumberFiled_inputDefault')
 
-  const [expMonth, setExpMonth] = useState()
+  const [expMonth, setExpMonth] = useState('')
   const [expMonthError, setExpMonthError] = useState('')
-  const [expMonthStyle, setExpMonthStyle] = useState('')
+  const [expMonthStyle, setExpMonthStyle] = useState('rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthDefault')
 
-  const [expYear, setExpYear] = useState()
+  const [expYear, setExpYear] = useState('')
   const [expYearError, setExpYearError] = useState('')
-  const [expYearStyle, setExpYearStyle] = useState('')
+  const [expYearStyle, setExpYearStyle] = useState('rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearDefault')
 
-  const [CVC, setCVC] = useState()
+  const [monthYearError, setMonthYearError] = useState('')
+
+  const [CVC, setCVC] = useState('')
   const [CVCError, setCVCError] = useState('')
   const [styleCVC, setStyleCVC] = useState('rightSide__boxContent_expCVCFiled_cvcField_inputDefault')
 
   const confirmForm = () => {
-    if(userName === '' || cardNumber === ''){
+    if(expMonth === '' && expYear === ''){
+      setMonthYearError(`Can't be blank`)
+    }else if(expMonth !== '' && expYear === ''){
+      setMonthYearError('Please enter year')
+    }else if(expMonth === '' && expYear !== ''){
+      setMonthYearError('Please enter month')
+    }
+    if(userName === '' || cardNumber === '' || expMonth === '' || expYear === ''){
       setNameError('Please enter your name')
       setStyleNameInput('rightSide__boxContent_nameFiled_inputError')
 
@@ -36,12 +47,35 @@ function App() {
 
       setCVCError('Please enter your CVC')
       setStyleCVC('rightSide__boxContent_expCVCFiled_cvcField_inputError')
+
+      setExpMonthError('Please enter month')
+      setExpMonthStyle('rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthError')
+
+      setExpYearError('Please enter year')
+      setExpYearStyle('rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearError')
+    }
+
+    if(userName !== '' && cardNumber !== '' && expMonth !== '' && expYear !== ''){
+      setStep('completed')
     }
   }
 
   return (
     <div className='wrapper'>
-      <div className='leftSide'></div>
+
+      <div className='cardFront'>
+        <p>{cardNumber.padEnd(16, 0).match(/.{1,4}/g).join(' ')}</p>
+        <p>{userName + 'JANE APPLESEED'.slice(userName.length)}</p>
+        <p>{expMonth.padEnd(2, 0)}</p>
+        <p>{expYear.padEnd(2, 0)}</p>
+      </div>
+
+      <div className='cardBack'>
+        <p>{CVC.padEnd(3, 0)}</p>
+      </div>
+
+      <div className='leftSide'>
+      </div>
       <div className='rightSide'>
         {step === 'enterData' ? (
           <div className='rightSide__boxContent'>
@@ -75,21 +109,21 @@ function App() {
                 <p className='rightSide__boxContent_expCVCFiled_expBlock_title'>EXP. DATA (MM/YY)</p>
                 <div className='rightSide__boxContent_expCVCFiled_expBlock_inputBox'>
                   <input 
-                    className='rightSide__boxContent_expCVCFiled_expBlock_inputBox_month'
+                    className={expMonthStyle}
                     placeholder='MM'
                     type='number'
                     value={expMonth}
                     onChange={(e) => setExpMonth(e.target.value)}
                   ></input>
                   <input
-                    className='rightSide__boxContent_expCVCFiled_expBlock_inputBox_year'
+                    className={expYearStyle}
                     placeholder='YY'
                     type='number'
                     value={expYear}
                     onChange={(e) => setExpYear(e.target.value)}
                   ></input>
                 </div>
-                <div className='rightSide__boxContent_cardNumberFiled_error'>{cardNumberError}</div>
+                <div className='rightSide__boxContent_cardNumberFiled_error'>{monthYearError}</div>
               </div>
 
               <div className='rightSide__boxContent_expCVCFiled_cvcField'>

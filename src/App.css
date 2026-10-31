@@ -13,6 +13,37 @@
   height: 100vh;
 }
 
+.cardFront {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  background-image: url(./img/bg-card-front.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 450px;
+  height: 250px;
+  padding: 20px;
+}
+
+.cardBack {
+  position: absolute;
+  top: 380px;
+  left: 175px;
+  background-image: url(./img/bg-card-back.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 450px;
+  height: 250px;
+}
+.cardBack p {
+  position: absolute;
+  top: 106px;
+  right: 55px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .leftSide {
   width: 100%;
   height: 100vh;
@@ -29,8 +60,8 @@
   justify-content: center;
 }
 .rightSide__boxContent {
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -38,7 +69,7 @@
 }
 .rightSide__boxContent_nameFiled, .rightSide__boxContent_cardNumberFiled {
   width: 100%;
-  height: 100px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -48,6 +79,7 @@
   letter-spacing: 2px;
   font-size: 16px;
   font-weight: bold;
+  margin-bottom: 5px;
 }
 .rightSide__boxContent_nameFiled_inputDefault, .rightSide__boxContent_nameFiled_inputError, .rightSide__boxContent_cardNumberFiled_inputDefault, .rightSide__boxContent_cardNumberFiled_inputError {
   width: 100%;
@@ -69,6 +101,7 @@
   border: 1px solid #220930;
 }
 .rightSide__boxContent_nameFiled_inputError, .rightSide__boxContent_cardNumberFiled_inputError {
+  margin-bottom: 5px;
   border: 1px solid rgba(185, 0, 0, 0.726);
   background-color: rgba(255, 199, 199, 0.329);
 }
@@ -85,16 +118,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: auto;
   gap: 40px;
 }
 .rightSide__boxContent_expCVCFiled_expBlock {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   width: 45%;
+  height: 100%;
 }
 .rightSide__boxContent_expCVCFiled_expBlock_title {
   color: #220930;
   font-weight: bold;
   letter-spacing: 2px;
+  margin-bottom: 5px;
 }
 .rightSide__boxContent_expCVCFiled_expBlock_inputBox {
   display: flex;
@@ -102,7 +140,7 @@
   justify-content: space-between;
   gap: 20px;
 }
-.rightSide__boxContent_expCVCFiled_expBlock_inputBox_month, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_year {
+.rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthDefault, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearDefault, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthError, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearError {
   width: 45%;
   height: 40px;
   width: 100%;
@@ -112,23 +150,39 @@
   color: #220930;
   border: 1px solid rgba(192, 192, 192, 0.733);
   border-radius: 7px;
+  margin-bottom: 5px;
 }
-.rightSide__boxContent_expCVCFiled_expBlock_inputBox_month::-moz-placeholder, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_year::-moz-placeholder {
+.rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthDefault::-moz-placeholder, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearDefault::-moz-placeholder, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthError::-moz-placeholder, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearError::-moz-placeholder {
   color: rgba(192, 192, 192, 0.781);
 }
-.rightSide__boxContent_expCVCFiled_expBlock_inputBox_month::placeholder, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_year::placeholder {
+.rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthDefault::placeholder, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearDefault::placeholder, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthError::placeholder, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearError::placeholder {
   color: rgba(192, 192, 192, 0.781);
 }
-.rightSide__boxContent_expCVCFiled_expBlock_inputBox_month:focus, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_year:focus {
+.rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthDefault:focus, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearDefault:focus, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthError:focus, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearError:focus {
   border: 1px solid #220930;
 }
+.rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthError, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearError {
+  border: 1px solid rgba(185, 0, 0, 0.726);
+  background-color: rgba(255, 199, 199, 0.329);
+}
+.rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthError::-moz-placeholder, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearError::-moz-placeholder {
+  color: rgba(185, 0, 0, 0.726);
+}
+.rightSide__boxContent_expCVCFiled_expBlock_inputBox_monthError::placeholder, .rightSide__boxContent_expCVCFiled_expBlock_inputBox_yearError::placeholder {
+  color: rgba(185, 0, 0, 0.726);
+}
 .rightSide__boxContent_expCVCFiled_cvcField {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   width: 45%;
+  height: auto;
 }
 .rightSide__boxContent_expCVCFiled_cvcField_title {
   color: #220930;
   font-weight: bold;
   letter-spacing: 2px;
+  margin-bottom: 5px;
 }
 .rightSide__boxContent_expCVCFiled_cvcField_inputDefault, .rightSide__boxContent_expCVCFiled_cvcField_inputError {
   width: 100%;
@@ -139,6 +193,7 @@
   color: #220930;
   border: 1px solid rgba(192, 192, 192, 0.733);
   border-radius: 7px;
+  margin-bottom: 5px;
 }
 .rightSide__boxContent_expCVCFiled_cvcField_inputDefault::-moz-placeholder, .rightSide__boxContent_expCVCFiled_cvcField_inputError::-moz-placeholder {
   color: rgba(192, 192, 192, 0.781);
